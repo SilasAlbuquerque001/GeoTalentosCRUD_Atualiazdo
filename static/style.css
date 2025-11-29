@@ -1,0 +1,39 @@
+/* ======== Estilo base para todo o app ======== */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* O conteúdo principal cresce e empurra o rodapé para baixo */
+.container {
+  flex: 1;
+}
+
+/* Rodapé fixo no final da tela */
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #0d6efd;
+  color: white;
+  padding: 10px 0;
+}
+
+/* Ajustes de responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  .btn-lg {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+}

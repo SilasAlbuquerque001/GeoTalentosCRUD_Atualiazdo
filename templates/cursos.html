@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h2>🎓 Cursos</h2>
+<a href="/novo_curso" class="btn btn-info my-3 text-white">+ Novo Curso</a>
+<table class="table table-striped table-hover">
+  <thead class="table-info">
+    <tr><th>ID</th><th>Nome</th><th>Instituição</th><th>Início</th><th>Término</th></tr>
+  </thead>
+  <tbody>
+    {% for c in cursos %}
+    <tr><td>{{ c[0] }}</td><td>{{ c[1] }}</td><td>{{ c[2] }}</td><td>{{ c[3] }}</td><td>{{ c[4] }}</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

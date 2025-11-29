@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h2>🤖 Agente Inteligente GeoTalentos</h2>
+<p class="text-muted">Simulação do módulo de análise automática de desempenho e recomendação de cursos.</p>
+
+<table class="table table-bordered table-hover mt-4">
+  <thead class="table-warning">
+    <tr>
+      <th>Jovem</th>
+      <th>Desempenho</th>
+      <th>Status</th>
+      <th>Recomendação do Agente</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in recomendacoes %}
+    <tr>
+      <td>{{ r[0] }}</td>
+      <td>{{ r[1] }}</td>
+      <td>{{ r[2] }}</td>
+      <td>{{ r[3] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<a href="/" class="btn btn-secondary mt-3">Voltar ao Início</a>
+{% endblock %}
