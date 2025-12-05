@@ -53,7 +53,7 @@ Baixe e copie de dentro do arquivo ZIP:
 Ou clone (caso esteja hospedado em repositório):
 ```bash
 git clone https://github.com/seu-usuario/geotalentos_crud.git
-cd geotalentos_crud
+cd geotalentos_crud_agente_atualizado
 
 
 ---
