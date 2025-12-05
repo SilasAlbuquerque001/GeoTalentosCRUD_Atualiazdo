@@ -10,7 +10,12 @@
     {% for j in jovens %}
     <tr>
       <td>{{ j[0] }}</td><td>{{ j[1] }}</td><td>{{ j[2] }}</td><td>{{ j[3] }}</td><td>{{ j[4] }}</td><td>{{ j[5] }}</td>
-      <td><a href="/excluir_jovem/{{ j[0] }}" class="btn btn-danger btn-sm">Excluir</a></td>
+      <td>
+        <div class="btn-group" role="group">
+          <a href="/editar_jovem/{{ j[0] }}" class="btn btn-warning btn-sm" title="Editar">✏️ Editar</a>
+          <a href="/excluir_jovem/{{ j[0] }}" class="btn btn-danger btn-sm" title="Excluir" onclick="return confirm('Tem certeza que deseja excluir este jovem?');">🗑️ Excluir</a>
+        </div>
+      </td>
     </tr>
     {% endfor %}
   </tbody>

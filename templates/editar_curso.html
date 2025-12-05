@@ -1,0 +1,9 @@
+<h2>Editar Curso</h2>
+
+<form action="{{ url_for('editar_curso', id=curso.id) }}" method="POST">
+  <input type="text" name="nome" value="{{ curso.nome }}" required>
+  <input type="text" name="carga_horaria" value="{{ curso.carga_horaria }}" required>
+  <button type="submit">Salvar</button>
+</form>
+
+<a href="{{ url_for('cursos') }}">Voltar</a>

@@ -67,6 +67,22 @@ def excluir_jovem(id):
     conn.close()
     return redirect(url_for('listar_jovens'))
 
+@app.route('/editar_jovem/<int:id>', methods=['GET', 'POST'])
+def editar_jovem(id):
+    conn = conectar()
+    cur = conn.cursor()
+    if request.method == 'POST':
+        dados = (request.form['nome'], request.form['idade'], request.form['localizacao'], request.form['desempenho'], request.form['status'], id)
+        cur.execute('UPDATE jovem SET nome=?, idade=?, localizacao=?, desempenho=?, status=? WHERE id=?', dados)
+        conn.commit()
+        conn.close()
+        return redirect(url_for('listar_jovens'))
+    
+    cur.execute('SELECT * FROM jovem WHERE id=?', (id,))
+    jovem = cur.fetchone()
+    conn.close()
+    return render_template('form_jovem.html', jovem=jovem)
+
 @app.route('/oportunidades')
 def listar_oportunidades():
     conn = conectar()
@@ -88,6 +104,31 @@ def nova_oportunidade():
         return redirect(url_for('listar_oportunidades'))
     return render_template('form_oportunidade.html')
 
+@app.route('/editar_oportunidade/<int:id>', methods=['GET', 'POST'])
+def editar_oportunidade(id):
+    conn = conectar()
+    cur = conn.cursor()
+    if request.method == 'POST':
+        dados = (request.form['titulo'], request.form['descricao'], request.form['localizacao'], request.form['status'], id)
+        cur.execute('UPDATE oportunidade SET titulo=?, descricao=?, localizacao=?, status=? WHERE id=?', dados)
+        conn.commit()
+        conn.close()
+        return redirect(url_for('listar_oportunidades'))
+    
+    cur.execute('SELECT * FROM oportunidade WHERE id=?', (id,))
+    oportunidade = cur.fetchone()
+    conn.close()
+    return render_template('form_oportunidade.html', oportunidade=oportunidade)
+
+@app.route('/excluir_oportunidade/<int:id>')
+def excluir_oportunidade(id):
+    conn = conectar()
+    cur = conn.cursor()
+    cur.execute('DELETE FROM oportunidade WHERE id=?', (id,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('listar_oportunidades'))
+
 @app.route('/cursos')
 def listar_cursos():
     conn = conectar()
@@ -108,6 +149,31 @@ def novo_curso():
         conn.close()
         return redirect(url_for('listar_cursos'))
     return render_template('form_curso.html')
+
+@app.route('/editar_curso/<int:id>', methods=['GET', 'POST'])
+def editar_curso(id):
+    conn = conectar()
+    cur = conn.cursor()
+    if request.method == 'POST':
+        dados = (request.form['nome'], request.form['instituicao'], request.form['dataInicio'], request.form['dataFim'], id)
+        cur.execute('UPDATE curso SET nome=?, instituicao=?, dataInicio=?, dataFim=? WHERE id=?', dados)
+        conn.commit()
+        conn.close()
+        return redirect(url_for('listar_cursos'))
+    
+    cur.execute('SELECT * FROM curso WHERE id=?', (id,))
+    curso = cur.fetchone()
+    conn.close()
+    return render_template('form_curso.html', curso=curso)
+
+@app.route('/excluir_curso/<int:id>')
+def excluir_curso(id):
+    conn = conectar()
+    cur = conn.cursor()
+    cur.execute('DELETE FROM curso WHERE id=?', (id,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('listar_cursos'))
 
 
 
