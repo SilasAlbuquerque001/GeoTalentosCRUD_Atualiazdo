@@ -1,8 +1,25 @@
 # 🌍 GeoTalentos — Sistema CRUD Simulado
+
+
+
 ### Projeto da Prefeitura de Igarassu (Versão Acadêmica)
 
 Este projeto é uma **implementação simplificada e funcional** do sistema **GeoTalentos**, baseado na documentação e nos diagramas fornecidos pela Prefeitura de Igarassu.  
 O objetivo é **demonstrar, em ambiente acadêmico**, o funcionamento de um CRUD web responsivo com base na modelagem do projeto real.
+
+---
+
+### Colaoradores
+
+| Matrícula | Nome |
+|-----------|------|
+|01146760|Bárbara Fernanda Ayres da Silva|
+|01534705|Isllâne Maria da Silva|
+|01711566|Gustavo Andrew Gomes da Silva|
+|01711431|João Pedro Carneiro da Silva|
+|01710979|Pedro Henrique Pereira Sales|
+|01710966|Silas Rafael Vieira de Albuquerque|
+|01710813|Wilson Francisco do Nascimento|
 
 ---
 
